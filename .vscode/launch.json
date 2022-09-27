@@ -1,0 +1,31 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "greengrocer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "greengrocer (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "greengrocer (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "iphone_Luwa",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "1ef658d1d01fc873a6f0058bdf214187738b0a2c"
+        }
+    ]
+}
