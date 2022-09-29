@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'src/pages/auth/sign_in_creen.dart';
 import 'src/pages/splash/splash_screen.dart';
 
 void main() {
