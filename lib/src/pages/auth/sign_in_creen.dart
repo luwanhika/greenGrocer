@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
+import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import 'package:greengrocer/src/pages/cpmmon_widgets/app_name_widget.dart';
 import 'package:greengrocer/src/pages_routes/app_pages.dart';
 
@@ -117,29 +118,39 @@ class SignInScreen extends StatelessWidget {
                       // Botão de entrar
                       SizedBox(
                         height: 50,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          )),
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              String email = emailController.text;
-                              String senha = passwordController.text;
-                              print('Email: $email - Senha: $senha');
-                            } else {
-                              print('Campos não válidos');
-                            }
+                        child: GetX<AuthController>(builder: (authController) {
+                          return ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            )),
+                            onPressed: authController.isLoading.value
+                                ? null
+                                : () {
+                                    // Sumir com o teclado depois de clicar no botão
+                                    FocusScope.of(context).unfocus();
+                                    if (_formKey.currentState!.validate()) {
+                                      String email = emailController.text;
+                                      String password = passwordController.text;
 
-                            // Get.offNamed(PagesRoutes.baseRoute);
-                          },
-                          child: const Text(
-                            'Entrar',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
+                                      authController.signIn(
+                                          email: email, password: password);
+                                    } else {
+                                      print('Campos não válidos');
+                                    }
+
+                                    // Get.offNamed(PagesRoutes.baseRoute);
+                                  },
+                            child: authController.isLoading.value
+                                ? const CircularProgressIndicator()
+                                : const Text(
+                                    'Entrar',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                          );
+                        }),
                       ),
 
                       // Esqueceu a senha
