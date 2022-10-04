@@ -48,7 +48,7 @@ class _ProfileTabState extends State<ProfileTab> {
           // Celular
           CustomTextField(
             readOnly: true,
-            initialValue: appData.user.cellphone,
+            initialValue: appData.user.phone,
             icon: Icons.phone,
             label: 'Celular',
           ),
