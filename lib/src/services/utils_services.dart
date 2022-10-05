@@ -8,7 +8,8 @@ class UtilsServices {
   final storage = const FlutterSecureStorage();
 
   // Salvar dado localmente em segurança
-  Future<void> saveLocalData({required String key, required String data}) async {
+  Future<void> saveLocalData(
+      {required String key, required String data}) async {
     await storage.write(key: key, value: data);
   }
 

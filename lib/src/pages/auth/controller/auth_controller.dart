@@ -36,17 +36,17 @@ class AuthController extends GetxController {
       },
     );
   }
-       Future<void> signOut() async {
-        // Zerar o user
-        user = UserModel();
 
-        // Remover o token localmente
-        await utilsServices.removeLocalData(key: StorageKeys.token);
+  Future<void> signOut() async {
+    // Zerar o user
+    user = UserModel();
 
-        // Ir para o login
-        Get.offAllNamed(PagesRoutes.signInRoute);
+    // Remover o token localmente
+    await utilsServices.removeLocalData(key: StorageKeys.token);
 
-       }
+    // Ir para o login
+    Get.offAllNamed(PagesRoutes.signInRoute);
+  }
 
   void saveTokenAndProceedToBase() {
     // salvar o token
