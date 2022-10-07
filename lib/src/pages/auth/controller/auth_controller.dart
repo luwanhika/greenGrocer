@@ -26,12 +26,12 @@ class AuthController extends GetxController {
     // Recuperar o token que foi salvo localmente
     String? token = await utilsServices.getLocalData(key: StorageKeys.token);
 
-    if (token != null) {
+    if (token == null) {
       Get.offAllNamed(PagesRoutes.signInRoute);
       return;
     }
 
-    AuthResult result = await authRepository.validateToken(token!);
+    AuthResult result = await authRepository.validateToken(token);
 
     result.when(
       success: (user) {
@@ -61,6 +61,28 @@ class AuthController extends GetxController {
 
     // Ir para a base
     Get.offAllNamed(PagesRoutes.baseRoute);
+  }
+
+  Future<void> signUp() async {
+    isLoading.value = true;
+
+    AuthResult result = await authRepository.signUp(user);
+
+    isLoading.value = false;
+
+    result.when(
+      success: (user) {
+        this.user = user;
+
+        saveTokenAndProceedToBase();
+      },
+      error: (message) {
+        utilsServices.showToast(
+          message: message,
+          isError: true,
+        );
+      },
+    );
   }
 
   Future<void> signIn({
