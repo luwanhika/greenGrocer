@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import '../../../../services/validators.dart';
 import '../../../cpmmon_widgets/custom_text_field.dart';
 
@@ -12,7 +14,8 @@ class ForgotPasswordDialog extends StatelessWidget {
     emailController.text = email;
   }
 
-  final formFiledKey = GlobalKey<FormFieldState>();
+  final _formFiledKey = GlobalKey<FormFieldState>();
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +61,7 @@ class ForgotPasswordDialog extends StatelessWidget {
 
                 // Campo de email
                 CustomTextField(
-                  formFieldKey: formFiledKey,
+                  formFieldKey: _formFiledKey,
                   controller: emailController,
                   icon: Icons.email,
                   label: 'Email',
@@ -79,7 +82,10 @@ class ForgotPasswordDialog extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      formFiledKey.currentState!.validate();
+                      if (_formFiledKey.currentState!.validate()) {
+                        authController.resetPassword(emailController.text);
+                        Get.back(result: true);
+                      }
                     },
                     child: const Text(
                       'Recuperar',
