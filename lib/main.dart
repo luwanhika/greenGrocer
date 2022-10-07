@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Get.testMode = true;
+    // Get.testMode = true;
     return GetMaterialApp(
       title: 'Greengrocer',
       theme: ThemeData(
