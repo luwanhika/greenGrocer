@@ -15,4 +15,7 @@ class CategoryModel {
       _$CategoryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryModelToJson(this);
+
+  @override
+  String toString() => 'CategoryModel(title: $title, id: $id)';
 }
