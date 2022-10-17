@@ -2,7 +2,7 @@ import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:add_to_cart_animation/add_to_cart_icon.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/pages/cpmmon_widgets/custom_shimmer.dart';
 import 'package:greengrocer/src/pages/home/controller/home_controller.dart';
@@ -30,10 +30,7 @@ class _HomeTabState extends State<HomeTab> {
 
   final UtilsServices utilsServices = UtilsServices();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  final controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +87,9 @@ class _HomeTabState extends State<HomeTab> {
                 vertical: 10,
               ),
               child: TextFormField(
+                onChanged: (value) {
+                  controller.searchTitle.value = value;
+                },
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -175,13 +175,11 @@ class _HomeTabState extends State<HomeTab> {
                           ),
                           itemCount: controller.allProducts.length,
                           itemBuilder: (_, index) {
-
-                            if(((index + 1) == controller.allProducts.length ) && !controller.isLastPage ){
-
+                            if (((index + 1) ==
+                                    controller.allProducts.length) &&
+                                !controller.isLastPage) {
                               controller.loadMoreProducts();
-
                             }
-
 
                             return ItemTile(
                               item: controller.allProducts[index],
