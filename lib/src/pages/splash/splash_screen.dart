@@ -3,7 +3,7 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
-import 'package:greengrocer/src/pages/cpmmon_widgets/app_name_widget.dart';
+import 'package:greengrocer/src/pages/common_widgets/app_name_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

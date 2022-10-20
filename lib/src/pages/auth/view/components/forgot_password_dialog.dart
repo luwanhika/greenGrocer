@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import '../../../../services/validators.dart';
-import '../../../cpmmon_widgets/custom_text_field.dart';
+import '../../../common_widgets/custom_text_field.dart';
 
 class ForgotPasswordDialog extends StatelessWidget {
   final emailController = TextEditingController();

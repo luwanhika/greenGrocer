@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/pages/auth/controller/auth_controller.dart';
 import 'package:greengrocer/src/pages/auth/view/components/forgot_password_dialog.dart';
-import 'package:greengrocer/src/pages/cpmmon_widgets/app_name_widget.dart';
+import 'package:greengrocer/src/pages/common_widgets/app_name_widget.dart';
 import 'package:greengrocer/src/pages_routes/app_pages.dart';
 
 import '../../../services/utils_services.dart';
 import '../../../services/validators.dart';
-import '../../cpmmon_widgets/custom_text_field.dart';
+import '../../common_widgets/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});

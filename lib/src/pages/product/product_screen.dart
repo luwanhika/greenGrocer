@@ -5,7 +5,7 @@ import 'package:greengrocer/src/models/item_model.dart';
 import 'package:greengrocer/src/pages/base/controller/navigation_controller.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 
-import '../cpmmon_widgets/quantity_widget.dart';
+import '../common_widgets/quantity_widget.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({
