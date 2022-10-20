@@ -75,20 +75,20 @@ List<String> categories = [
   'Cereais',
 ];
 
-List<CartItemModel> cartItems = [
-  CartItemModel(
-    item: apple,
-    quantity: 2,
-  ),
-  CartItemModel(
-    item: mango,
-    quantity: 5,
-  ),
-  CartItemModel(
-    item: guava,
-    quantity: 1,
-  ),
-];
+// List<CartItemModel> cartItems = [
+//   CartItemModel(
+//     item: apple,
+//     quantity: 2,
+//   ),
+//   CartItemModel(
+//     item: mango,
+//     quantity: 5,
+//   ),
+//   CartItemModel(
+//     item: guava,
+//     quantity: 1,
+//   ),
+// ];
 
 UserModel user = UserModel(
   name: 'luwanhika Chocombongue',
@@ -112,14 +112,14 @@ List<OrderModel> orders = [
       '2022-12-08 11:00:10.458',
     ),
     items: [
-      CartItemModel(
-        item: apple,
-        quantity: 2,
-      ),
-      CartItemModel(
-        item: mango,
-        quantity: 2,
-      ),
+      // CartItemModel(
+      //   item: apple,
+      //   quantity: 2,
+      // ),
+      // CartItemModel(
+      //   item: mango,
+      //   quantity: 2,
+      // ),
     ],
   ),
 
@@ -136,10 +136,10 @@ List<OrderModel> orders = [
       '2022-12-08 11:00:10.458',
     ),
     items: [
-      CartItemModel(
-        item: guava,
-        quantity: 1,
-      ),
+      // CartItemModel(
+      //   item: guava,
+      //   quantity: 1,
+      // ),
     ],
   ),
 ];
