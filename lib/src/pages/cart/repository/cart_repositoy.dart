@@ -37,7 +37,7 @@ class CartRepository {
 
   Future<CartResult<String>> addItemToCart({
     required String userId,
-    required String quantity,
+    required int quantity,
     required String productId,
     required String token,
   }) async {
@@ -45,7 +45,7 @@ class CartRepository {
       url: Endpoints.addItemToCart,
       method: HttpMethods.post,
       headers: {
-        'token': token,
+        'X-Parse-Session-Token': token,
       },
       body: {
         'user': userId,

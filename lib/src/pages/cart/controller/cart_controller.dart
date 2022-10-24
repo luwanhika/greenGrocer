@@ -64,20 +64,29 @@ class CartController extends GetxController {
       // Já existe
       cartItems[itemIndex].quantity += quantity;
     } else {
-      cartRepository.addItemToCart(
-        userId: userId,
+      final CartResult<String> result = await cartRepository.addItemToCart(
+        userId: authController.user.id!,
         quantity: quantity,
-        productId: productId,
-        token: token,
+        productId: item.id,
+        token: authController.user.token!,
       );
 
-      // Não existe
-      cartItems.add(
-        CartItemModel(
-          id: '',
-          item: item,
-          quantity: quantity,
-        ),
+      result.when(
+        success: (cartItemId) {
+          cartItems.add(
+            CartItemModel(
+              id: cartItemId,
+              item: item,
+              quantity: quantity,
+            ),
+          );
+        },
+        error: (message) {
+          utilsServices.showToast(
+            message: message,
+            isError: true,
+          );
+        },
       );
     }
 
