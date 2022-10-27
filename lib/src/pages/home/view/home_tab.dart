@@ -4,6 +4,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
+import 'package:greengrocer/src/pages/base/controller/navigation_controller.dart';
+import 'package:greengrocer/src/pages/cart/controller/cart_controller.dart';
 import 'package:greengrocer/src/pages/common_widgets/custom_shimmer.dart';
 import 'package:greengrocer/src/pages/home/controller/home_controller.dart';
 import 'package:greengrocer/src/pages/home/view/components/item_tile.dart';
@@ -23,6 +25,7 @@ class _HomeTabState extends State<HomeTab> {
   GlobalKey<CartIconKey> globalKeyCartItems = GlobalKey<CartIconKey>();
 
   final searchController = TextEditingController();
+  final navigationController = Get.find<NavigationContoller>();
 
   late Function(GlobalKey) runAddToCardAnimation;
 
@@ -47,26 +50,30 @@ class _HomeTabState extends State<HomeTab> {
               top: 15,
               right: 15,
             ),
-            child: GestureDetector(
-              onTap: () {},
-              child: Badge(
-                badgeColor: CustomColors.customContrastColor,
-                badgeContent: const Text(
-                  '2',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
+            child: GetBuilder<CartController>(builder: (controller) {
+              return GestureDetector(
+                onTap: () {
+                  navigationController.navigatePageView(NavigationTabs.cart);
+                },
+                child: Badge(
+                  badgeColor: CustomColors.customContrastColor,
+                  badgeContent: Text(
+                    controller.getCartTotalItems().toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                  child: AddToCartIcon(
+                    key: globalKeyCartItems,
+                    icon: Icon(
+                      Icons.shopping_cart,
+                      color: CustomColors.customSwatchColor,
+                    ),
                   ),
                 ),
-                child: AddToCartIcon(
-                  key: globalKeyCartItems,
-                  icon: Icon(
-                    Icons.shopping_cart,
-                    color: CustomColors.customSwatchColor,
-                  ),
-                ),
-              ),
-            ),
+              );
+            }),
           ),
         ],
       ),
