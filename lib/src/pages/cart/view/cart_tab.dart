@@ -103,28 +103,37 @@ class _CartTabState extends State<CartTab> {
                 }),
                 SizedBox(
                   height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: CustomColors.customSwatchColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                  child: GetBuilder<CartController>(builder: (controller) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: CustomColors.customSwatchColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
                       ),
-                    ),
-                    onPressed: () async {
-                      bool? result = await showOrderConfirmation();
+                      onPressed: controller.isCheckoutLoading
+                          ? null
+                          : () async {
+                              bool? result = await showOrderConfirmation();
 
-                      if (result ?? false) {
-                        cartController.checkoutCart();
-                      }
-                    },
-                    child: const Text(
-                      'Concluir pedido',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
+                              if (result ?? false) {
+                                cartController.checkoutCart();
+                              } else {
+                                utilsServices.showToast(
+                                    message: 'Pedido não confirmado');
+                              }
+                            },
+                      child: controller.isCheckoutLoading
+                          ? const CircularProgressIndicator()
+                          : const Text(
+                              'Concluir pedido',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                    );
+                  }),
                 ),
               ],
             ),
