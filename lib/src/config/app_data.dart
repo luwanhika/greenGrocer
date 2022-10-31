@@ -100,46 +100,46 @@ UserModel user = UserModel(
 
 List<OrderModel> orders = [
   // Pedido 1
-  OrderModel(
-    id: 'asd6a54da6s2d1',
-    status: 'pending_payment',
-    total: 11.0,
-    copyAndPaste: 'q1w2e3r4t5y6',
-    createdDateTime: DateTime.parse(
-      '2022-12-08 10:00:10.458',
-    ),
-    overdueDateTime: DateTime.parse(
-      '2022-12-08 11:00:10.458',
-    ),
-    items: [
-      // CartItemModel(
-      //   item: apple,
-      //   quantity: 2,
-      // ),
-      // CartItemModel(
-      //   item: mango,
-      //   quantity: 2,
-      // ),
-    ],
-  ),
+  // OrderModel(
+  //   id: 'asd6a54da6s2d1',
+  //   status: 'pending_payment',
+  //   total: 11.0,
+  //   copyAndPaste: 'q1w2e3r4t5y6',
+  //   createdDateTime: DateTime.parse(
+  //     '2022-12-08 10:00:10.458',
+  //   ),
+  //   overdueDateTime: DateTime.parse(
+  //     '2022-12-08 11:00:10.458',
+  //   ),
+  //   items: [
+  //     // CartItemModel(
+  //     //   item: apple,
+  //     //   quantity: 2,
+  //     // ),
+  //     // CartItemModel(
+  //     //   item: mango,
+  //     //   quantity: 2,
+  //     // ),
+  //   ],
+  // ),
 
-  // Pedido 2
-  OrderModel(
-    id: 'q1w2e3r4t5y6',
-    status: 'delivered',
-    total: 11.5,
-    copyAndPaste: 'q1w2e3r4t5y6',
-    createdDateTime: DateTime.parse(
-      '2022-12-08 10:00:10.458',
-    ),
-    overdueDateTime: DateTime.parse(
-      '2022-12-08 11:00:10.458',
-    ),
-    items: [
-      // CartItemModel(
-      //   item: guava,
-      //   quantity: 1,
-      // ),
-    ],
-  ),
+  // // Pedido 2
+  // OrderModel(
+  //   id: 'q1w2e3r4t5y6',
+  //   status: 'delivered',
+  //   total: 11.5,
+  //   copyAndPaste: 'q1w2e3r4t5y6',
+  //   createdDateTime: DateTime.parse(
+  //     '2022-12-08 10:00:10.458',
+  //   ),
+  //   overdueDateTime: DateTime.parse(
+  //     '2022-12-08 11:00:10.458',
+  //   ),
+  //   items: [
+  //     // CartItemModel(
+  //     //   item: guava,
+  //     //   quantity: 1,
+  //     // ),
+  //   ],
+  // ),
 ];
