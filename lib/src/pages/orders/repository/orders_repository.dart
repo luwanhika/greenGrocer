@@ -7,18 +7,18 @@ import '../orders_result/orders_result.dart';
 class OrdersRepository {
   final _httpManager = HttpManager();
 
-  Future<OrdersResult<List<OrderModel>>> tAllOrders({
-    required String token,
+  Future<OrdersResult<List<OrderModel>>> getAllOrders({
     required String userId,
+    required String token,
   }) async {
     final result = await _httpManager.restRequest(
       url: Endpoints.getAllOders,
       method: HttpMethods.post,
-      headers: {
-        'X-Parse-Session-Token': token,
-      },
       body: {
         'user': userId,
+      },
+      headers: {
+        'X-Parse-Session-Token': token,
       },
     );
 
@@ -30,7 +30,7 @@ class OrdersRepository {
 
       return OrdersResult<List<OrderModel>>.success(orders);
     } else {
-      OrdersResult.error('Não foi possivel recuperar os pedidos');
+      return OrdersResult.error('Não foi possivel recuperar os pedidos');
     }
   }
 }
