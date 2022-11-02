@@ -8,6 +8,7 @@ import 'package:greengrocer/src/pages/product/product_screen.dart';
 import 'package:greengrocer/src/pages/splash/splash_screen.dart';
 
 import '../pages/base/base_screen.dart';
+import '../pages/orders/binding/orders_binding.dart';
 
 abstract class AppPages {
   static final pages = <GetPage>[
@@ -34,6 +35,7 @@ abstract class AppPages {
           NavigationBinding(),
           HomeBinding(),
           CartBinding(),
+          OrdersBinding(),
         ]),
   ];
 }
