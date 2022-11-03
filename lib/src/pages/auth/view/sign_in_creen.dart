@@ -88,6 +88,7 @@ class SignInScreen extends StatelessWidget {
                     children: [
                       // Email
                       CustomTextField(
+                        textInputType: TextInputType.emailAddress,
                         controller: emailController,
                         icon: Icons.email,
                         label: 'Email',
